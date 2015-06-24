@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+        <meta charset="utf-8">
+        <title>Chris Strangfeld</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:300" rel="stylesheet" type='text/css'>
+        
+        <!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        
+        <style type="text/css">
+        html,body {
+            height:100%;
+            min-height: 100%;
+            font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+            background: #eee;
+        }
+        section {
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .section-header {
+            min-height: 100vh;
+            background: #222 url(https://scontent-lga1-1.xx.fbcdn.net/hphotos-ash2/t31.0-8/921479_10152765247595567_839533915_o.jpg);
+            background-size: cover;
+            background-position: bottom center;
+            -webkit-transform: scaleX(-1);
+            -moz-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+        .section-header .row {
+            -webkit-transform: scaleX(-1);
+            -moz-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+        .section-header ul a {
+            color: #eee;
+            font-size: 2.5em;
+            margin-top:10vh;
+            margin-right: 5px;
+            padding: 3px 5px;
+            display: block;
+            font-family: 'Open Sans Condensed';
+        }
+        .section-header ul a:hover {
+            background-color: rgba(94, 15, 139, .6);
+            text-decoration: none;
+        }
+        h1 {
+            font-family: 'Open Sans Condensed';
+            font-weight: 300;
+            font-size: 6em;
+            color: #eee;
+            text-align: right;
+            margin: 45vh 0 0;
+        }
+        h1 small {
+            color: #ccc;
+            text-style: italic;
+        }
+        h2, h3 {
+            font-family: 'Open Sans Condensed';
+            font-weight: 300;
+        }
+        .thumbnail {
+            margin-top: 20px;
+        }
+        .thumbnail h3 {
+            font-size: 1.4em;
+            margin-top: 0;
+        }
+        .divider, .section-gallery {
+            min-height: 50vh;
+            background: #222;
+            position: static;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .divider-1 {
+            background-image: url(https://scontent-lga1-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/181407_626718315822_1526113686_n.jpg?oh=d48a1e0c6ea1abb70083eac29e462b5e&oe=55F2E7CC);
+            background-position: left bottom;
+        }
+        .divider-2 {
+            background-image: url(https://scontent-lga1-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/893176_10152632151350567_1963933029_o.jpg);
+            background-position: right top;
+        }
+        table {
+            margin-bottom: 0;
+        }
+        .col-xs-12>.thumbnail {
+            margin-bottom: 10vh;
+        }
+        .section-gallery h2 {
+            position: absolute;
+            color: #eee;
+            z-index: 1;
+        }
+        .carousel {
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel-inner {
+            width: 100000px;
+            transition: left 2s cubic-bezier(0,1,0,1);
+            left: 0;
+        }
+        .carousel img, .carousel-inner {
+            max-height: 90vh;
+        }
+        .carousel-inner>.item {
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .section-header .container {
+                position: relative;
+            }
+            .section-header ul {
+                margin-top: 90vh;
+                position: absolute;
+                right: 0;
+            }
+            .section-header ul a {
+                font-size: 1em;
+                margin: 0;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .section-credits .thumbnail {
+                padding: 0;
+                background: transparent;
+                border: none;
+                margin: 0;
+            }
+            table {
+                background: transparent;
+            }
+            tr {
+                display: block;
+                padding: 4px;
+                margin-bottom: 20px;
+                line-height: 1.42857143;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                -webkit-transition: border .2s ease-in-out;
+                -o-transition: border .2s ease-in-out;
+                transition: border .2s ease-in-out;
+                margin: 15px 0;
+            }
+            td {
+                display: block;
+                border: none !important;
+            }
+            td:first-child {
+                font-family: 'Open Sans Condensed';
+                font-size: 1.4em;
+            }
+            thead, td:last-child, td:nth-child(3) {
+                display: none;
+            }
+            .carousel-inner>.item>img {
+                max-width: 130vw;
+                max-height: 100vw;
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <section class="section-header" id="Home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="list-inline text-right">
+                            <li><a href="#Bio">Biography</a></li>
+                            <li><a href="#Credits">Credits</a></li>
+                            <li><a href="#Photos">Photos</a></li>
+                            <li><a href="#Videos">Videos</a></li>
+                            <li><a href="#Contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1>Chris Strangfeld<br/><small>Backstage Theatre, Technical Theatre, Actor</small></h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-bio" id="Bio">
+            <div class="container">
+                <h2>Biography</h2>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-sm-push-6 col-md-push-8">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <img style="max-width: 100%" src="https://static.wixstatic.com/media/697cb0_d70f5daf48cd480598bc64528208b46f.jpg_srz_p_352_453_75_22_0.50_1.20_0.00_jpg_srz" alt="Chris Strangfeld"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-sm-pull-6 col-md-pull-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <p class="lead" style="font-family:'Open Sans Condensed'">A <b>DILIGENT</b> worker and a talented <b>PERFORMER</b>. Dedicated to <b>ENTERTAINMENT</b>, understanding the complexities of human <b>EMOTION</b>, uncovering and improving natural abilities in self and others, <b>PRODUCING</b> all aspects of a performance, and creating beautiful <b>ART</b> by using gifts of communication, activation, and <b>JOY</b>.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-sm-pull-6 col-md-pull-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3>Theater Experience</h3>
+                                <p>Actor
+                                    <br/>Singer
+                                    <br/>Director
+                                    <br/>Stage Manager
+                                    <br/>Technical Director
+                                    <br/>Production Manager
+                                    <br/>Guest Relations
+                                    <br/>Marketing
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-md-pull-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3>Work Experience</h3>
+                                <p>Technical Director, Theatre Department, Geneva College</p>
+                                <p>Production Manager, Theatre Department, Geneva College</p>
+                                <p>Student Activities Graduate Assistant, Office of Student Programs, Geneva College</p>
+                                <p><b><a href="http://media.wix.com/ugd/697cb0_368551055ae143ba82acfba1f08b02ff.pdf">View Full Resum&eacute;</a></b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3>Education</h3>
+                                <p>Masters of Higher Education, Geneva College</p>
+                                <p>Bachelor of Arts, Communications/Public Relations, Geneva College</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3>Personality</h3>
+                                <p>Energetic
+                                    <br/>Intelligent
+                                    <br/>Charismatic
+                                    <br/>Resourceful
+                                    <br/>Detail-Oriented
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-sm-push-6 col-md-push-0">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3>Personal Information</h3>
+                                <p><span class="var-age"></span> years old</p>
+                                <p>5' 8", 145 lbs</p>
+                                <p>Pittsburgh, Pennsylvania</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="divider divider-1"></section>
+        
+        <section class="section-credits" id="Credits">
+            <div class="container">
+                <h2>Credits</h2>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="thumbnail" style="margin-bottom: 10vh">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Play</th>
+                                        <th>Role</th>
+                                        <th>Director</th>
+                                        <th>Theater</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>The Importance of Being Earnest</td>
+                                        <td>Technical Director/Production Manager</td>
+                                        <td>David Kuhns</td>
+                                        <td>Geneva College</td>
+                                    </tr>
+                                    <tr>
+                                        <td>The Who's, Tommy in Concert</td>
+                                        <td>Hawker, Guard, Officer, Ensemble</td>
+                                        <td>Thom McLaughlin</td>
+                                        <td>LPPAC</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dental Health Issues</td>
+                                        <td>Writer/Director</td>
+                                        <td>Chris Strangfeld</td>
+                                        <td>Geneva College</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Peter Pan</td>
+                                        <td>Technical Director/Production Manager, Nibs</td>
+                                        <td>Mindy Williams</td>
+                                        <td>Geneva College</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fully Dysfunctional</td>
+                                        <td>Writer/Director</td>
+                                        <td>Chris Strangfeld</td>
+                                        <td>Geneva College</td>
+                                    </tr>
+                                    <tr>
+                                        <td>The Odyssey</td>
+                                        <td>Technical Director/Production Manager,<br/>Eurylochus, Phemios, Ensemble</td>
+                                        <td>David Kuhns</td>
+                                        <td>Geneva College</td>
+                                    </tr>
+                                    <tr>
+                                        <td>A Day in the Life of a Brig Table</td>
+                                        <td>Writer, Male #1</td>
+                                        <td>Josiah Everett</td>
+                                        <td>Geneva College</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Spoon River</td>
+                                        <td>Technical Director/Production Manager</td>
+                                        <td>Mindy Williams</td>
+                                        <td>Geneva College</td>
+                                    </tr>
+                                    <tr>
+                                        <td>A Prideful Encroachment</td>
+                                        <td>Writer, Director, LeFou</td>
+                                        <td>Chris Strangfeld</td>
+                                        <td>Geneva College</td>
+                                    </tr>
+                                    <tr>
+                                        <td>A Midsummer Night's Dream</td>
+                                        <td>Properties Master/Run Crew</td>
+                                        <td>David Kuhns</td>
+                                        <td>Geneva College</td>
+                                    </tr>
+                                    <tr>
+                                        <td>The Little Prince</td>
+                                        <td>Properties Master/Run Crew</td>
+                                        <td>Mindy Williams</td>
+                                        <td>Geneva College</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-gallery">
+            <div class="container">
+                <h2>Photos</h2>
+            </div>
+                <div id="Photos" class="carousel slide">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#Photos" data-jump-to="0" class="active"></li>
+                    <li data-target="#Photos" data-jump-to="1"></li>
+                    <li data-target="#Photos" data-jump-to="2"></li>
+                    <li data-target="#Photos" data-jump-to="3"></li>
+                    <li data-target="#Photos" data-jump-to="4"></li>
+                    <li data-target="#Photos" data-jump-to="5"></li>
+                    <li data-target="#Photos" data-jump-to="6"></li>
+                    <li data-target="#Photos" data-jump-to="7"></li>
+                    <li data-target="#Photos" data-jump-to="8"></li>
+                    <li data-target="#Photos" data-jump-to="9"></li>
+                    <li data-target="#Photos" data-jump-to="10"></li>
+                  </ol>
+                
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="https://scontent-lga1-1.xx.fbcdn.net/hphotos-xtf1/t31.0-8/1617691_10152340407962074_645440760_o.jpg" alt="Chris Strangfeld">
+                    </div>
+                    <div class="item">
+                        <img src="https://scontent-lga1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/164913_10152765269190567_1182806341_n.jpg?oh=3e70eb751fc3e35c08ac8b9bb69e632c&oe=562C6861" alt="Chris Strangfeld">
+                    </div>
+                    <div class="item">
+                      <img src="https://scontent-lga1-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/477361_10152809177425445_155741858_o.jpg" alt="Chris Strangfeld">
+                    </div>
+                    <div class="item">
+                      <img src="https://scontent-lga1-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/415607_10152181054450567_168074725_o.jpg" alt="Chris Strangfeld">
+                    </div>
+                    <div class="item">
+                      <img src="https://scontent-lga1-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/461978_10150995416065020_1962831421_o.jpg" alt="Chris Strangfeld">
+                    </div>
+                    <div class="item">
+                        <img src="https://scontent-lga1-1.xx.fbcdn.net/hphotos-ash2/t31.0-8/s960x960/920436_10152765269075567_973106775_o.jpg" alt="Chris Strangfeld">
+                    </div>
+                    <div class="item">
+                        <img src="https://scontent-lga1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/10251956_10154091878790364_5444444303473361541_n.jpg?oh=9b464f4b1d5262ea7ff8b6b867a1ef59&oe=55FC7170" alt="Chris Strangfeld">
+                    </div>
+                    <div class="item">
+                      <img src="https://scontent-lga1-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/463807_10152287463300567_1935472587_o.jpg" alt="Chris Strangfeld">
+                    </div>
+                    <div class="item">
+                        <img src="https://scontent-lga1-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/969812_10151480596102763_164436424_n.jpg?oh=ccf87582fb8c4ce4af27a299db719a8d&oe=562CD866" alt="Chris Strangfeld">
+                    </div>
+                    <div class="item">
+                      <img src="https://scontent-lga1-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/404004_10151240275447474_387855634_n.jpg?oh=540130a05432239558658823c264e1b3&oe=56002E8A" alt="Chris Strangfeld">
+                    </div>
+                    <div class="item">
+                        <img src="https://scontent-lga1-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/405901_570550476312400_697378307_n.jpg?oh=4661125fbd49f06a543442e821c90fa4&oe=562FD45F" alt="Chris Strangfeld">
+                    </div>
+                  </div>
+                
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#Photos" role="button">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#Photos" role="button">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+
+        </section>
+        
+        <section class="section-videos" id="Videos">
+            <div class="container">
+                <h2>Videos</h2>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <iframe height="300" width="100%" allowfullscreen="" frameborder="0" src="//www.youtube.com/embed/hGoZkmjaUy0?wmode=transparent&amp;autoplay=0&amp;theme=light&amp;controls=0&amp;autohide=0&amp;loop=0&amp;showinfo=0&amp;rel=0&amp;playlist=false&amp;enablejsapi=0"></iframe>
+                            <div class="caption">
+                                <h3>Let it Go/Defying Gravity Mashup (2014)</h3>
+                                <p>Don't let <i>him</i> go!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <iframe height="300" width="100%" allowfullscreen="" frameborder="0" src="//www.youtube.com/embed/vzwPZyUMSTQ?wmode=transparent&amp;autoplay=0&amp;theme=light&amp;controls=0&amp;autohide=0&amp;loop=0&amp;showinfo=0&amp;rel=0&amp;playlist=false&amp;enablejsapi=0"></iframe>
+                            <div class="caption">
+                                <h3>Holy Grail (2014)</h3>
+                                <p>Just hitting that high G.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <iframe height="300" width="100%" allowfullscreen="" frameborder="0" src="//www.youtube.com/embed/dvdMu6H5g30?wmode=transparent&amp;autoplay=0&amp;theme=light&amp;controls=0&amp;autohide=0&amp;loop=0&amp;showinfo=0&amp;rel=0&amp;playlist=false&amp;enablejsapi=0"></iframe>
+                            <div class="caption">
+                                <h3>Radioactive (2013)</h3>
+                                <p>Not quite active on the radio yet, but Radioactive, yes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <iframe height="300" width="100%" allowfullscreen="" frameborder="0" src="//www.youtube.com/embed/5yDPjXAne48?wmode=transparent&amp;autoplay=0&amp;theme=light&amp;controls=0&amp;autohide=0&amp;loop=0&amp;showinfo=0&amp;rel=0&amp;playlist=false&amp;enablejsapi=0"></iframe>
+                            <div class="caption">
+                                <h3>Little Talks (2013)</h3>
+                                <p>Big hype for a little song.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <iframe height="300" width="100%" allowfullscreen="" frameborder="0" src="//www.youtube.com/embed/DuO93nlq9YU?wmode=transparent&amp;autoplay=0&amp;theme=light&amp;controls=0&amp;autohide=0&amp;loop=0&amp;showinfo=0&amp;rel=0&amp;playlist=false&amp;enablejsapi=0"></iframe>
+                            <div class="caption">
+                                <h3>A Prideful Encroachment (2013)</h3>
+                                <p>LeFou sings for you.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <iframe height="300" width="100%" allowfullscreen="" frameborder="0" src="//www.youtube.com/embed/GIWKDu03-ek?wmode=transparent&amp;autoplay=0&amp;theme=light&amp;controls=0&amp;autohide=0&amp;loop=0&amp;showinfo=0&amp;rel=0&amp;playlist=false&amp;enablejsapi=0"></iframe>
+                            <div class="caption">
+                                <h3>Just Dance (2012)</h3>
+                                <p>"Trained" dancer. Hey, it's about entertainment value.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <section class="divider divider-2"></section>
+        
+        <section class="section-contact" id="Contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <div class="row">
+                    <div class="col-xs-12 col-md-9">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="subject">Subject</label>
+                                        <div class="col-sm-10"><input class="form-control" name="subject" id="subject" placeholder="Subject"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="message">Message</label>
+                                        <div class="col-sm-10"><textarea class="form-control" name="message" id="message" rows="5"></textarea></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="submit" class="btn btn-default">Send</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script type='text/javascript'>
+        jQuery.extend({bez:function(b,c){jQuery.isArray(b)&&(c=b,b="bez_"+c.join("_").replace(/\./g,"p"));if("function"!==typeof jQuery.easing[b]){var m=function(b,c){var f=[null,null],e=[null,null],d=[null,null],k=function(g,a){d[a]=3*b[a];e[a]=3*(c[a]-b[a])-d[a];f[a]=1-d[a]-e[a];return g*(d[a]+g*(e[a]+g*f[a]))};return function(b){for(var a=b,c=0,h;14>++c;){h=k(a,0)-b;if(.001>Math.abs(h))break;a-=h/(d[0]+a*(2*e[0]+3*f[0]*a))}return k(a,1)}};jQuery.easing[b]=function(b,l,f,e,d){return e*m([c[0],c[1]],[c[2],c[3]])(l/d)+f}}return b}});
+        
+        function getAge() {
+            var today = new Date(),
+                birthDate = new Date("1991/01/04"),
+                age = today.getFullYear() - birthDate.getFullYear(),
+                m = today.getMonth() - birthDate.getMonth()
+                
+            return (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) ? age - 1 : age
+    	}
+        
+        $(function () {
+            $('.var-age').text(getAge())
+            
+            $('a[href^=#]').on('click', function (e) {
+                var href = $(this).attr('href')
+                e.preventDefault()
+                $('html, body').one("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+                    $(this).stop();
+                });
+            
+                $('html, body').animate({ scrollTop: $(href).offset().top }, 2000, $.bez([0,1,0,1]), function(){
+                    $(this).off("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove");
+                });
+                
+                location.hash = href
+            })
+            
+            var Carousel = function(el) {
+                this.carousel = $(el),
+                this.items = this.carousel.find('.carousel-inner').children(),
+                this.currentItem = Math.max(this.items.index(this.carousel.find('.item.active')), 0)
+            }
+            
+            Carousel.prototype = {
+                update: function (i) {
+                    var item = this.items.eq(i)
+                    
+                    if (!!!item.length) return
+                    
+                    this.currentItem = i
+                    this.carousel.find('.active').removeClass('active')
+                    item.addClass('active')
+                    this.carousel.find('.carousel-indicators').children().eq(i).addClass('active')
+                    this.carousel.find('.carousel-inner').css('left', this.carousel.find('.carousel-inner').offset().left - item.offset().left)
+                },
+                next: function () {
+                    this.update((this.currentItem + 1) % this.items.length)
+                },
+                prev: function () {
+                    this.update(Math.max(this.currentItem - 1, 0))
+                }
+            }
+            
+            var carousel = new Carousel('#Photos')
+            
+            $('.right.carousel-control').on('click', function (e) {
+                e.preventDefault()
+                carousel.next()
+            })
+            
+            $('.left.carousel-control').on('click', function (e) {
+                e.preventDefault()
+                carousel.prev()
+            })
+            
+            $('[data-jump-to]').on('click', function (e) {
+                e.preventDefault()
+                carousel.update(parseInt($(this).data('jump-to'), 10))
+            })
+            
+            $('form').on('submit', function (e) {
+                e.preventDefault()
+                var w = window.open('mailto:chris.strangfeld@gmail.com?subject=' + $('#subject').val() + '&body=' + $('#message').val().replace(/\n/g, '%0A%0A'), null, 'toolbars=0,width=1,height=1,left=200,top=200,scrollbars=0,resizable=0')
+                w.resizeTo(0, 0)
+                w.moveTo(0, w.screen.availHeight + 10)
+                setTimeout(function () {
+                    w.close()
+                }, 100)
+            })
+        })
+        
+        </script>
+    </body>
+</html>
